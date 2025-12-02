@@ -4,6 +4,9 @@ import tasksRouter from './api/tasks';
 import './db';
 // other imports
 import cors from 'cors';
+//... other imports
+import usersRouter from './api/users';
+
 
 
 
@@ -30,6 +33,10 @@ app.use(express.json());
 
 app.use('/api/tasks', tasksRouter);
 app.use(errHandler);
+//Users router
+app.use('/api/users', usersRouter);
+
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
