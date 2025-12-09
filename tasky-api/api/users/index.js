@@ -38,9 +38,9 @@ router.post('/', asyncHandler(async (req, res) => {
 
 
 async function registerUser(req, res) {
-    const { username, password } = req.body;
-    const strongPasswordReqex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-    if (!strongPasswordReqex.test(password)) {
+    const { password } = req.body;
+    const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    if (!strongPasswordRegex.test(password)) {
         return res.status(400).json({ success: false, msg: 'Password must be at least 8 characters long and contain at least one letter, one number, and one special character.',});
     }
 
